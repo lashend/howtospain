@@ -1,0 +1,1062 @@
+/* NOTE: For an "id" in the html, I start the css #page-container; For a "class" in the html, I start the css .page-container. 
+
+//QUESTION REMAINING: How to make this page reload once the form is submitted?? 
+
+STATUS: The search box is ready to insert into the real page. 
+
+//
+
+*/
+
+:root {
+   /*  --main-light-color: rgb(243, 243, 252); */
+    --main-bg-color:#f8f8c2;
+    --main-light-color:lightblue;
+    --main-highlight-color:lightgray;
+    --main-hover-color:rgb(110, 65, 65);
+  }
+
+html, body {
+    min-height: 100%; /* I changed this from height:100% to min-height:100% and I think that will make my html / page-container extend generally to the end of the content. */
+}
+
+/* I read here https://love2dev.com/blog/responsive-hero-background-opacity/ that this is a good practice ... will set the default margin, padding ... I can override this with specific calls. */ 
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+  width: 100%;
+  height: 100%;
+  }
+
+
+/****** General styles ******/
+body {
+    min-height: 100%;
+    margin:0;
+    padding:0;
+    display:block;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    color:#1a1a1a; /*text color */
+    background-color:var(--main-bg-color);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.4em;
+    /*background: #f2ece8 url("../symbols/gradient-1000.png") repeat-x top; 
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%; */
+    
+    /* These are the backgrounds I've introduced. This is cool, I like it, but I'm going to try to make a transparent background image now. 
+    background-image: url("images/bg-yellow3.jpg");
+    background-size: 100% 100%;
+    background: 
+    linear-gradient(to bottom, rgba(230, 93, 39, 0.8), rgba(209, 195, 63, 0) 70.71%),linear-gradient(to right, rgba(160, 130, 31, 0.8), rgba(207, 181, 93, 0) 70.71%);
+    */
+
+    box-sizing:border-box;
+    /*
+
+    background: 
+        linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), 
+        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    /* I have done a stacked linear gradient; see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients; */
+    
+    background-attachment: fixed; /*controls whether the background image is fixed or scroll; 
+    /*	background-color: #f2ece8;  */
+    /*	background: #8c1515; 	    */
+
+}
+
+div > * {
+    background-color: var(--main-bg-color); /* see also .container  and match colors. */
+}
+
+.col-sm-8, .col-sm-4, .col-md-4, .col-md-8, .row {
+    column-rule-color: #f8f8c2;
+   /* background-color: #f8f8c2;*/
+
+}
+
+.bg-light {
+    background-color:var(--main-light-color);
+}
+
+.container > h1 {
+    font-family: 'Titillium Web', sans-serif;
+    text-transform:uppercase;
+    font-weight:2000;
+    font-size:60px;
+}
+
+/* NOTE: the two class="row" in the header are overhanging the right margin. I have given it negative padding, but I don't want to add any more (because this applies to all rows. HOW TO FIX??? */
+.row {
+    margin-left:0px;
+    margin-right:0px; 
+    padding-right:-30px;
+}
+
+
+
+
+
+
+
+/* ----- Helper classes ------ */
+.width-100 {
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.no-wrap {
+	white-space: nowrap;
+}
+.sticky {
+	z-index: 10;
+}
+
+/*To make it full-height fill color */
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}
+
+/* I made this class to left-align and no-bullet items in a list (such as sidenav) */
+.nobull {
+    list-style-type: none;
+    padding-left:0px;
+}
+
+
+
+/* Working inward */
+
+/* ------ Container ------ */
+.container {
+	max-width:960px; /* This makes the body background come into effect when we go to large screen sizes */
+	margin-left:auto;
+	margin-right:auto;
+    /*-webkit-box-shadow: 0 10px 10px #730F0F;
+    -moz-box-shadow: 0 10px 10px #730F0F;
+    box-shadow: 0 10px 10px #730F0F; Might want to add this to page-container instead */
+    padding: 10px 10px 10px 10px; 
+    margin-bottom:0;
+    background-color: var(--main-bg-color);
+    /*default background: solid color; to be overridden by the following gradients when these are recognized by the browser. */
+    
+    /*background-color: rgb(231, 231, 169);
+    /* THESE ARE THE RADIAL GRADIENT BACKGROUNDS. I'm going to eliminate for now.
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(37%,#555555), color-stop(100%,#f2ece8)); /* Chrome,Safari4+ */
+	/*background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 37%,#555555 100%); /* Chrome10+,Safari5.1+ */
+	/*background: -o-radial-gradient(center, ellipse cover,  #ffffff 37%,#555555 100%); /* Opera 12+ */
+	/*background: -ms-radial-gradient(center, ellipse cover,  #ffffff 37%,#555555 100%); /* IE10+ */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#555555',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    
+
+    box-sizing:border-box;
+    display:grid;
+}
+
+
+.outer-container{
+    /*background-color:red; */
+    display:flex; /* Need this value on to make align and justify work correctly. */
+    /* display: grid; /*or this works too. */
+     min-height: 70vh;
+     width:100%;
+     /*background-color:lightblue;*/
+      
+     /*background-image: url("../../../resources/backgrounds/sand1.jpg"); 
+     /*background-size:cover; No I took this off: it looks cool as a repeating.*/
+     justify-content: center; 
+     justify-items:center;
+     align-items:center;
+     align-content:center; 
+     align-self:center; 
+     justify-self:center;
+     position:relative; 
+     overflow:hidden;
+     padding:0;
+     margin:0;
+}
+
+
+.outer-container:before{
+    /*This is correct formatting: main-content-row is an id, so in the css I label with #. One : or two :: ... both versions are ok, but one is preferred for IE. */
+    display:block; /* AAA I needed this to make it work. Before I added this, it was invisible. */
+    content:'   ';
+    background: url('../../resources/backgrounds/sand1.jpg'); 
+    /*filter:grayscale(100%);*/
+    /*background-blend-mode:multiply;*/
+    filter:brightness(120%);
+    position:absolute;
+    opacity:0.4; 
+    z-index:-1;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    width: 100%; /* AAA I needed this to make it work. Before I added this, it was invisible. */
+    height: 100%; /* AAA I needed this to make it work. Before I added this, it was invisible. */
+    /*z-index:-1; Including this line shifts the image to second tier. Hmm. */ 
+    /*background-size: cover;*/
+}
+
+.outer-container-after{
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+  }
+
+#page-container{
+    padding:0px;
+   /* -webkit-box-shadow: 0 10px 0px 10px #730F0F; */
+  /*  -moz-box-shadow: 0px 10px 10px 10px #730F0F; */
+    box-shadow: -2px 0px 30px 7px rgb(105, 62, 13); 
+    min-height:100%; 
+   /* border:2px blue; */
+    background-size: 100% 100%;
+    position:relative;
+    min-height:100vh;
+
+}
+
+/* LOOK UP: HOW TO FORMAT IN CASE OF CLASSES. */
+
+
+#outer-content-wrapper{
+    background-color: var(--main-bg-color);
+    padding:0;
+    margin:0;
+}
+
+
+#header-wrapper {
+    background-image:none;
+    /*background-color:rosybrown !important;*/
+}
+
+#header-top-row-text {
+    margin: 5px 5px 5px 5px; /* Top Right Bottom Left; alter; margin-top margin-right margin-bottom margin-left; */
+    display:table;
+    background-image:none;
+
+}
+
+input{
+    border:0;
+    border: solid 1px gray; 
+    border-radius:3px; 
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.header-col {
+    padding:0px;
+    margin:10px;
+}
+
+#logo-area {
+    box-sizing:border-box;
+    margin:5px;
+    padding:5px;
+    align-content:center;
+    justify-content:center;
+}
+
+#page-title{
+    display:table-cell;
+    vertical-align:middle;
+    margin: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 10px;
+    background-image:none;
+    background-color: var(--main-bg-color) !important;
+    box-shadow:none;
+}
+
+#page-title > h1{
+    background-color: var(--main-bg-color) !important;
+}
+
+#page-title > h1 > a{
+    color:black;
+}
+
+#page-title > h1 > a:hover{
+    text-decoration:none;
+}
+
+#header-second-row {
+    /*background-color: darkkhaki;*/
+}
+
+
+
+#collapseExample {
+    /*background-color:whitesmoke; */
+}
+
+.nav-vertical >ul {
+
+}
+
+.nav-item {
+    display:block;
+    max-width:180px;
+}
+
+#topnav-wrapper {
+    /*background-color:lightseagreen;*/
+}
+
+#search-bar-container {
+    padding:0; 
+    margin:0; 
+    max-width:400px; 
+
+    
+}
+
+/*These styles will serve for all nav bars */
+#nav{
+
+}
+
+#main-nav {
+
+}
+
+#btn-main-nav {
+
+}
+
+#main-nav-list{
+
+}
+
+
+
+#main-middle-row {
+    /*background-color:#f8f8c2;*/
+    
+}
+
+#side-section {
+    /*background-color: lightblue;*/
+    padding:3px;
+    /*border: solid 2px black;*/
+    max-width:200px;
+}
+
+/* For all children of #side-section */
+#side-section > ul {
+    list-style:none;
+    max-width:200px;
+
+}
+
+#sidebar-container{
+    max-width:200px;
+    /*border:solid 2px black; */
+    margin:5px; 
+    background-color:var(--main-light-color);
+    position:sticky; 
+    top:0px; 
+    box-shadow: 3px 2px 3px 2px gray; /*horizontal offset, vertical offset, blur, spread, color */
+}
+
+#sidebar-container > * {
+    background-color:var(--main-light-color);
+}
+
+#sidebar2-container{
+    max-width:200px; 
+    box-sizing:stretch;
+    /*background-color:ghostwhite; */
+}
+
+#sidebar1>* {
+    list-style:none;
+    max-width:400px;
+    /*background-color:palegoldenrod; */
+}
+
+#sidebarCollapse{
+    max-width:400px;
+
+}
+
+#sidenav-wrapper {
+   /* background-color:lightgoldenrodyellow;*/
+   display:grid; 
+   padding: 2px;
+    /*border: solid 10px green;*/
+    max-width:150;
+}
+
+.navbar .navbar-dark .mb-4 {
+    margin:1px !important;
+}
+
+.mb-r{
+    margin:1px !important;
+}
+
+#sidenav{
+   /*background-color:paleturquoise;*/
+    padding: 5x;
+    list-style:none;
+    /*border:solid 5px red;*/
+    box-shadow: 4px 3px 5px 0px #595959;
+    max-width:250px;
+
+
+    /*FIX THIS */
+    /*-webkit-box-shadow: 0 10px 0px 10px #730F0F; This does not make a difference It is now a standard property ... */
+    /*-moz-box-shadow: 0 10px 0px 10px #730F0F; This does not make a difference */
+}
+
+.nav-link{
+    color: rgb(31, 5, 5); 
+    text-transform:uppercase;
+    padding: 0 0 0 3px;
+}
+
+.navbar-dark > .navbar-brand, .navbar-brand:hover, .navbar-brand-focus, .navbar-toggler {
+    color: rgb(31, 5, 5)  ;
+    border:none;
+}
+
+.navbar-toggler > button {
+    color:red;
+}
+
+.navbar-toggler {
+    color:blue;
+}
+
+.navbar-nav {
+    max-width:400px;
+}
+
+.navbar-nav.mr-auto {
+    background-color:var(--main-light-color);
+    /*filter: brightness(80%);*/
+}
+
+.navbar-nav .nav-link {
+    padding:1px 1px 1px 4px;
+}
+
+#navbarCollapse.navbar-collapse.collapse.show {
+    background-color:var(--main-light-color);
+}
+
+.navbar-toggler-icon {
+    color:orange !important;
+}
+
+.navbar-toggler>span{
+    color:black;
+}
+
+.navbar-toggler:hover{
+    color:var(--main-hover-color);
+}
+
+.navbar-toggler > .hover{
+    color:var(--main-hover-color);
+}
+/* this isn't making the hover color change */
+
+.navbar-dark {
+    background-color: var(--main-bg-color);
+    text-transform: uppercase;
+    border:0; 
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: rgb(145, 110, 110); 
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(31, 5, 5); 
+    background-color: var(--main-light-color);
+    text-transform: uppercase;
+
+}
+
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(31, 5, 5); 
+    background-color: var(--main-light-color);
+    text-transform: uppercase;
+
+}
+
+.navbar-dark .navbar-nav .nav-link > a{
+    color: rgb(145, 110, 110); 
+    text-transform: uppercase;
+
+}
+
+.navbar-expand-md, .navbar-nav, #dropSubSupport.dropdown-toggle, #dropSubAbout.dropdown-toggle, #dropSubBrowse.dropdown-toggle {
+    background-color:var(--main-light-color);
+    /*background-color:red; */
+    /* background-color:var(--main-bg-color);*/
+    max-width:250px;
+    
+}
+
+@media (max-width:720px) {
+    .navbar-expand-md, .navbar-nav, #dropSubSupport.dropdown-toggle, #dropSubAbout.dropdown-toggle, #dropSubBrowse.dropdown-toggle {
+        background-color:var(--main-light-color);
+    }
+
+    .dropdown-menu {
+        filter: brightness(120%);
+    }
+        
+}
+
+@media (min-width:750px) {
+    .navbar-expand-md, .navbar-nav, #dropSubSupport.dropdown-toggle, #dropSubAbout.dropdown-toggle, #dropSubBrowse.dropdown-toggle {
+        background-color:var(--main-bg-color);
+    }
+
+    .navbar-nav.mr-auto{
+        margin-right:20px;
+    }
+
+    #navbarCollapse {
+        min-width:700px;
+    }
+
+    .site-search {
+        margin-left:100px;
+        align:right;
+        display:inline-flex;
+        position:relative;
+    }
+}
+
+.navbar-collapse-md {
+    background-color:blue;
+}
+
+#main-col{
+    background-color: var(--main-bg-color);
+    padding:0;
+    margin:0px 5px 5px 15px;
+
+}
+
+#article-wrapper {
+    background-color: var(--main-light-color);
+    padding: 5x;
+    list-style:none;
+    /*border:solid 5px red;*/
+    box-shadow: 4px 3px 5px 0px #595959;
+}
+
+.article-wrapper, #article, .article-title, .article-overview, .article-details, .article-references, .article-other-takes > h2, h1, p {
+    background-color: var(--main-light-color) !important;
+}
+
+.article-wrapper, #article, .article-title, .article-overview, .article-details, .article-references, .article-other-takes {
+    background-color: var(--main-light-color) !important;
+}
+
+
+
+#article-title {
+    color: green; 
+    
+}
+
+
+
+
+
+
+/* I have elminated this class for now.
+#page-container {
+    /*background-color: lightgreen;
+
+    background: radial-gradient(center, ellipse cover, #ffffff 37%,#f2ece8 100%); 
+} */
+/*
+.container {
+    height: 100%;
+    width:100%;
+}
+*/
+
+
+/* FROM ORIG */
+
+/* ------ Navigation ------ */
+#navigation {
+	width: 64%;
+}
+
+#navbar-container{
+    background-color: var(--main-bg-color);
+}
+
+.homepage #navigation {
+	width:100%;
+	display: block;
+}
+.navbar {
+    margin-bottom: 0;
+    padding:3px; 
+    color:rgb(22, 2, 2); 
+
+}
+.navbar .nav {
+	float: left;
+    margin-right: 0;
+    color:rgb(22, 2, 2); 
+
+}
+
+.navbar-toggler-icon {
+    color:black; 
+
+}
+
+.navbar-toggler-icon:hover {
+    color:var(--main-hover-color)
+
+}
+
+.navbar-container{
+    padding:3px; 
+    margin:3px; 
+}
+.navbar .btn-navbar {
+	color:#000;
+	text-shadow:none;
+	border:green 5px;
+}
+.navbar-inner {
+	background:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border:none;
+	padding:0;
+    border:green 5px;
+    color:rgb(22, 2, 2); 
+
+
+}
+.navbar .nav > li > a {
+	color:#000;
+	border: 1px solid transparent;
+	font-size: 1.4em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin-right: 1em;
+    padding: 0;
+	padding-bottom: 0.6em;
+
+}
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+    color: var(--main-hover-color);
+    color:red;
+}
+.navbar > * {
+	background: none;
+    color:black;
+    cursor:pointer; 
+	-webkit-border-radius: 4px 4px 0px 0px;
+	-moz-border-radius: 4px 4px 0px 0px;
+	border-radius: 4px 4px 0px 0px;
+
+}
+
+/* THIS DOES IT */
+.navbar-dark .navbar-nav .nav-link {
+    color:rgb(31, 5, 9);
+    text-transform:uppercase; 
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--main-hover-color);
+
+}
+
+
+/*
+.navbar-dark .navbar-nav .nav-link:hover{
+    color:rgb(10, 11, 36);
+}
+
+.navbar-dark .navbar-nav .nav-link a:hover {
+color: yellow;
+}
+
+
+
+.navbar a i {
+	font-size: 0.9em;
+    color:#8c1515;
+    -webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.navbar a:hover i,
+.navbar .nav li.dropdown.open > .dropdown-toggle i, 
+.navbar .nav li.dropdown.active > .dropdown-toggle i, 
+.navbar .nav li.dropdown.open.active > .dropdown-toggle i  {
+	color:#000000;
+}
+.navbar .nav > li > .dropdown-menu:before, 
+.navbar .nav > li > .dropdown-menu:after {
+	content:none;
+}
+*/
+
+
+.nav-item.dropdown {
+    /*background-color:purple;*/
+}
+
+.nav-link.droppdown-toggle{
+    background-color:pink;
+}
+
+
+/*AAAAAA THIS SOLVED MY PROBLEM OF THE HORIZONTAL DROPDOWN! */ 
+.dropdown-menu {
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
+    max-width:200px;
+    padding: 1px 1px 1px 1px; /* First value is top, then right ... */
+    margin:3px 5px 3px 30px; /* I did this to make it move farther right; it was aligned too far to the left. */
+    background-color: var(--main-light-color);
+    filter: brightness(120%);
+    border: 1px solid gold;
+    box-shadow:0 6px 12px 0; 
+}
+
+.dropdown-item, .dropdown-item>a {
+    background-color:var(--main-light-color);
+     /* this is where the ROW color gets defined.*/
+}
+
+.dropdown-item:hover, .dropdown-item>a:hover{
+    /*background-color:var(--main-highlight-color); /* this is where the ROW hover color gets defined */
+    color: var(--main-hover-color);
+
+}
+
+.dropdown-item > li {
+    background-color:brown;
+}
+
+.dropdown-menu > li > a {
+	background:inherit;
+	-webkit-transition: background 0.2s ease;
+	-moz-transition: background 0.2s ease;
+	-o-transition: background 0.2s ease;
+    transition: background 0.2s ease;
+    text-decoration:none;
+    color:black !important;
+}
+
+#dropSubBrowse, #dropSubAbout, #dropSubSupport  {
+    color: rgb(31, 5, 5); 
+    /*background-color: var(--main-bg-color);*/
+    background-color:var(--main-light-color);
+    text-transform: uppercase;
+
+}
+
+.nav-link.droppdown-toggle {
+    background-color:purple;
+}
+
+#dropSubBrowse:hover, #dropSubAbout:hover, #dropSubSupport:hover {
+   /* background-color:var(--main-highlight-color);*/
+    color: var(--main-hover-color);
+}
+
+/*
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+	background: red;
+    color: blue; !important;
+
+} */
+
+.dropdown > li > a {
+    color:green !important; 
+}
+
+.drop-browse {
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
+    max-width:200px;
+    padding: 5px 5px 5px 5px;
+    background-color: var(--main-light-color);
+    border: 1px solid gold;
+    box-shadow:0 6px 12px 0; 
+}
+.drop-browse > li > a {
+	background:#ffffff;
+	-webkit-transition: background 0.3s ease;
+	-moz-transition: background 0.3s ease;
+	-o-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+    text-decoration:none;
+    color:black !important;
+}
+.drop-browse > li > a:hover, .drop-browse > li > a:focus, .drop-submenu:hover > a, .dropdown-submenu:focus > a {
+	background: #E6E6E6;
+    color: var(--main-hover-color);
+} 
+
+.drop-browse > li > a {
+    color:green !important; 
+}
+
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+  }
+  
+  .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+
+  #search_term {
+      background-color:var(--main-light-color);
+  }
+
+.nav {
+    color:black;
+}
+
+.nav > a {
+    color:green;
+}
+
+.fas .fa-search > *{
+    color:var(--main-hover-color);
+    color:red;
+}
+
+
+/*
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    border:green 10px;
+    background-color:yellow;
+    color:purple;
+  }
+
+.search_term{
+    width: 100%;
+    border: 10px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+*/
+
+.search_term:focus{
+    color:red;
+}
+/*
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  */
+
+  /* NEED TO GET THESE TO BE THE SAME HEIGHT.*/
+  form#form_get_search_term button {
+    border: none;
+    border:transparent;
+    border-width:2px 2px 2px 2px; 
+    cursor: pointer;
+    height: 33px;
+    padding: 0;
+    background-color:white;
+    border-radius: 20px;
+    margin-left:-20px;
+  }
+
+
+  form#form_get_search_term input {
+    border-style:border-box;
+    border: solid red;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 10px 0px 0px 10px; /*top-left, top-right, bottom-right, bottom-left */
+    border:transparent;
+
+    /*flex: 1;*/
+    font-size: 16px;
+    font-weight: 200;
+    height: 33px;
+    margin: 0;
+    min-width: 90px;
+    max-width:250px;
+    padding:10px;
+    /**AAA The excessive vertical space is padding. Figure out how to change color??? */
+    -webkit-appearance: textfield;
+    /*background:var(--main-light-color);*/
+    background-color:white;
+    border-radius:20px;
+
+  }
+
+  .right-gutter {
+      margin:10px;
+      background-color:red;
+  }
+
+  form#form_get_search_term input:focus {
+    background-color:rgb(216, 235, 241);
+    -webkit-input-placeholder-color:transparent; 
+    -moz-placeholder-color:transparent;  /* FF 4-18 */
+    -moz-placeholder-color:transparent;  /* FF 19+ */
+    -ms-input-placeholder-color:transparent;  /* IE 10+ */  }
+
+  form#form_get_search_term {
+    align-items: center;
+    display: flex;
+    max-width: 180px;
+    width: 100%;
+    /*float:left;*/
+    background:var(--main-light-color);
+    border:transparent;
+    border-radius:20px 20px 20px 20px !important;
+    margin-left:0px;
+    margin-right:10px;
+  }
+
+  .search-form {
+      border-radius:20px;
+      background-color:red;
+  }
+
+  form#form_get_search_term svg {
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    fill: black;
+    z-index:2;
+    height: 33px;
+    min-width: 24px;
+    padding: 0 2px;
+    width: 33px;
+    /*border:transparent;*/
+    padding-right:10px;
+    margin-right:2px;
+  }
+
+
+.site-search{
+    margin: 10px 0;
+    margin-left:8px;
+    background-color:white;
+    border-radius:20px;
+    float:right;
+    display:inline-block;
+    max-width:220px;
+}
+
+
+/*FOOTER */
+
+
+
+#footer{
+    background-color: none; 
+    display:grid; 
+    border: none;
+    grid-auto-flow:column;
+    padding-left:20px;
+    padding-right:20px;
+
+}
+
+
+#footer-menu  {
+    display:grid;
+    grid-auto-flow:column;
+    padding-left:50px;
+    padding-top:15px;
+}
+
+.footer-menu-block > ul {
+    list-style: none;
+    padding-left:5px;
+    padding-top:0px;
+}
+
+.footer-menu-block > ul > li > a {
+    text-transform: underline red;
+    color:orange;
+}
+
+.footer-menu-block > ul > li > :hover {
+    text-transform: underline red;
+    color:green;
+}
+
+#bottom-logo {
+    display:flex;
+    grid-auto-flow:column;
+    justify-content:center;
+    align-content:center;
+    justify-self:center;
+    align-self:center;
+    justify-items:center;
+    align-items:center;
+    border:none;
+    padding:5px; 
+    background-color:none;
+}
+

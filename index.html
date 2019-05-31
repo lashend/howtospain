@@ -1,0 +1,368 @@
+
+
+<!-- 
+
+
+Add to the site: INDEX. 
+I have started a page outline. 
+IDENTIFY THE Dropdown Links I'll include in the menus (top and bottom navs)
+
+MAJOR TO DO: 
+Make some better logos for myself. One round (for upper left) and one horizontal (for bottome logo). Actually, my horizontal logo might be good already. But the circle has text too small. 
+
+
+Other than that, it's looking great. 
+
+-->
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- LEARNED: CMD+[ to outdent by one tab.-->
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- Makes it Mobile First-->
+<title>How to Spain 18 May </title><!--from: https://getbootstrap.com/docs/4.1/getting-started/introduction/; -->
+
+
+<!-- CALLS:    
+  [ORDER]: You'll want files from vendors such as jQuery and Bootstrap to be included before yours. This means that CSS: You can override their styles with your own -->
+
+<!-- CALL the Bootstrap Minified Style Sheet via CDN. This is current version 20 April 2019.
+Typically stylesheets go in the head and scripts before the closing </body> tag (SEE END)-->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- CALL: Import webfonts using this link: -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,200&amp;subset=latin,latin-ext"  />
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap" rel="stylesheet">
+
+<!-- CALL: Import FontAwesome icons via CDN (internet call)-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+<!-- Link my stylesheets last to override any bootstrap etc inbuilt styles-->
+<link rel="stylesheet" href="style.css">
+
+
+      <!-- REF: Directions from Bootstrap Documentation here: https://getbootstrap.com/docs/4.1/getting-started/introduction/.  That’s all you need for overall page requirements. Visit the Layout docs (https://getbootstrap.com/docs/4.1/layout/overview/)  or our official examples (https://getbootstrap.com/docs/4.1/examples/) to start laying out your site’s content and components. -->
+
+      <!--NOTE: If I do not want to use CDN, I can Add Bootstrap locally: 
+        <link rel="stylesheet" href="assets/bootstrap.min.css">
+              Link to out custom style sheet
+        <link rel="stylesheet" href="assets/custom.css">
+              jQuery (necessary for Bootstrap's JavaScript plugins) 
+        <script src="assets/jquery.min.js"></script>
+              Include bootstrap javaScript 
+          <script src="assets/bootstrap.min.js"></script>
+      -->
+</head>    
+
+
+
+<body>
+  <!-- In style.css, I have added a min-height and a background to the body itself.-->
+
+<!-- Start PAGE CONTAINER: !!!! NOTE: I think this is ending prematurely. Check my divs. 
+   This is the container for all my page content. -->  
+<div class="outer-container">
+  <div class="container fill" id="page-container" > 
+    <!-- I have added classes in the style sheet for fill; and id of page-container to encase the entire page with a padding of 20.-->
+    <!-- NOTE: There might be a container-fluid class built into Bootstrap; but by defining a .fill class in my CSS, I think I've achieved the same thing (and I can control the padding).-->
+
+<!-- Start HEADER-WRAPPER-->
+    <div class="container" id="outer-content-wrapper">
+    <div class="container" id="header-wrapper"> <!-- NOTE: The only that should be the immediate parent of a ROW is a CONTAINER-->
+        
+      <div class="row" id="header-top-row">
+          <div class="col-sm-3" id="logo-area" >
+              <a href="http://www.leahashe.com" target="_blank"><img src="../../resources/logo3.png" class="rounded-circle " width=100px alt="Ashe. Think well"></a>
+          </div>
+          <div class="col-sm-8" id="header-top-row-text"><!-- Aha. I think i see what was happening. logo-area was overflowing its assigned 3 columns, so when I had col-sm-9, this element could not fit. How can I prevent logo-area from overflowing?-->
+            <div class="container" id="page-title">
+              <h1> <a href="#">how to spain</a></h1>
+            </div>
+          </div><!--END header-top-row-text-->
+        </div><!-- End header-top-row -->
+
+
+<!-- I think I want to place the whole Main-Nav container here. -->
+
+<!-- START SECOND ROW-->
+        <div class="row" id="header-second-row">
+
+<!-- START SECOND ROW, FIRST COLUMN-->
+          <div class="col-md-10 header-col"> <!-- NOTE: The only that should be the immediate child of a ROW is a COLUMN-->
+
+        <!-- NAVBAR-CONTAINER  STARTS HERE!!! AAA -->
+                      <!-- main-nav container STARTS HERE!!! AAA -->
+            <div class="container" id="navbar-container">
+              <!-- ORIG
+              <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4" role="navigation">
+            --... OK, eliminating navbar-dark broke it ... but eliminating bg-dark kept the format while removing the black background. Good. -->
+              <div class="navbar navbar-expand-md navbar-light" role="navigation"><!-- removed .mb-4-->
+                  <!-- <a class="navbar-brand" href="#">Menu</a>-->
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                      <span><i class="fas fa-bars"></i></span>
+                        
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                      <ul class="navbar-nav mr-auto"><!-- mr-auto is the plugin that allows the sub-menu-->
+
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" id="dropSubBrowse" data-toggle="dropdown">
+                                  
+                              <span style="font-size: 1.5rem;">
+                                          <span>
+                                              <i class="fas fa-eye" ></i>
+                                          </span>
+                              
+                              Browse
+                              </span>
+                              </a>
+                              <ul class="dropdown-menu"><!-- Here begins the sub-dropdown-->
+                                  <li class="dropdown-item" href="#"><a>Index</a></li>
+                                  <li class="dropdown-item" href="#"><a>Timeline</a></li>
+                                  <li class="dropdown-item" href="#"><a>Search</a></li>
+                              </ul>
+                          </li>
+
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" id="dropSubAbout" data-toggle="dropdown">
+                                      <span style="font-size: 1.5rem;">
+                                              <span>
+                                                  <i class="fas fa-info-circle"></i>        
+                                              </span>
+                                      About
+                                  </span>
+                              </a>
+                              <ul class="dropdown-menu">
+                                  <li class="dropdown-item" href="#"><a>This site</a></li>
+                                  <li class="dropdown-item" href="#"><a>Who did this?</a></li>
+                                  <li class="dropdown-item" href="#"><a>Contact</a></li>
+                              </ul>
+                          </li>
+
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" id="dropSubSupport" data-toggle="dropdown">
+                                  <span style="font-size: 1.5rem;">
+                                        <span>
+                                            <i class="fas fa-gift"></i>        
+                                        </span>
+                                  Support
+                                </span>
+                              </a>
+                              <ul class="dropdown-menu">
+                                  <li class="dropdown-item" href="#"><a>Share knowledge</a></li>
+                                  <li class="dropdown-item" href="#"><a>Make a donation</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+
+                      <!-- THIS WORKED BEST -->
+                      <div class="site-search"><!-- This div holds the search box form-->
+                        <form action="#" id="form_get_search_term" onSubmit="searchNewPage()" onSubmit="window.location.reload()"; autocomplete="on" class="search-form">
+                    
+                            <input type="text" id="search_term" name="serch_term"  placeholder="" >
+                                <!-- NOTE: Best practices say: There are lots of good reasons not to use a placeholder. So I've eliminated it.-->
+                                   
+                            <button type="submit" class="searchButton">
+                                <svg viewbox="0 0 24 24">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                    <path d="M0 0h24v24H0z" fill="none">
+                                </svg>
+                            </button>
+                                    
+                        
+                        </form>
+                    </div><!-- End of the DIV holding the form.-->
+
+
+                  </div>
+              </div>
+            </div><!-- End of the div I want to hold this top navbar-->
+
+              </div> <!-- END SECOND ROW, FIRST COLUMN-->
+<!-- END SECOND ROW, FIRST COLUMN-->
+
+
+                <!--<div class="col-sm-1" id="right-gutter" ></div>-->
+
+            </div><!-- End header-second-row-->
+      </div><!-- END HEADER-WRAPPER Yes. -->
+
+
+<!-- Start Main Middle Area: Contains Sidebar and Article area-->
+      <div class="row" id="main-middle-row">
+          
+<!-- SIDEBAR - WHOLE AREA -->
+          <div class="col-sm-4" id="side-section" class="sticky" >
+<!-- START: sidenav-wrapper ... which I think I want to replace with below.-->
+                <div class="container" id="sidenav-wrapper">
+                    <div class="container" id="sidebar-container" >
+                              <div class="navbar  navbar-dark" role="navigation"><!-- Note: I have removed the .mb-4 class from the class. This is a bootstrap !important element that (I think) oonly added a large margin-bottom.-->
+                                  <a class="navbar-brand" href="#">Contents</a>
+                                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="nsidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                      
+                                        <span><i class="fas fa-bars"></i></span>
+                                  </button>
+                                  <div class="collapse navbar-collapse nav-vertical" id="sidebarCollapse">
+                                      <ul class="navbar-nav"><!-- mr-auto is the plugin that allows the sub-menu-->
+                                          
+                                          <li class="nav-item">
+                                                  <a class="nav-link" href="#overview">Overview</a>
+                                          </li>
+                      
+                                          <li class="nav-item" href="#details">
+                                                  <a class="nav-link">Details</a>
+                                          </li>
+                          
+                                          <li class="nav-item">
+                                              <a class="nav-link" href="#references">References</a>
+                                          </li>
+                          
+                                          <li class="nav-item" href="#other-takes">
+                                                  <a class="nav-link">Other Takes</a>
+                                          </li>
+                                      </ul>
+                          
+                          
+                                  </div>
+                              </div>
+                          </div><!-- End of the div I want to hold this navbar-->
+                        <!-- END TRY 5-->
+                        
+                                
+                  
+                  </div><!-- End sidenav-wrapper-->
+          </div> <!-- End side-section-->
+<!-- END SIDEBAR - WHOLE AREA -->
+         
+         
+<!-- MAIN SECTION - WHOLE AREA -->
+          <div class="col-sm-8" id="main-col">
+            <div class="container" id="article-wrapper">
+              <div class="container" id="article">
+                <div class="article-title">
+                  <h1>Article title</h1>
+                </div>
+                <div class="article-overview">
+                    <a name="overview">
+                        <h2>Overview</h2>
+                    </a>
+                        <p> I need to make the background bg-light or insert the same color to this tag.  </p>
+                </div>
+                <div class="article-details">
+                    <a name="details">
+                        <h2>Details</h2>
+                    </a>
+                </div>
+                <div class="article-references">
+                    <a name="references">
+                        <h2>References</h2>
+                    </a>
+                </div>
+                <div class="article-other-takes">
+                    <a name="other-takes">
+                        <h2>Other Takes</h2>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+<!-- END MAIN SECTION - WHOLE AREA -->
+
+        </div> <!-- End div main-middle-row-->
+
+<!-- FOOTER STARTS HERE-->
+        <div class="row" id="footer">
+            <div id="footer-menu">
+                <div class="footer-menu-block">
+                    <h4><i class="icon-eye"></i>Browse</h4>
+                    <ul role="menu">
+                        <li><a href="#">Index</a></li>
+                        <li><a href="#">Timeline</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu-block">
+                        <h4><i class="icon-info"></i>About</h4>
+                        <ul role="menu">
+                                <li><a href="#">This site</a></li>
+                                <li><a href="#">Who did this?</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                </div>
+                <div class="footer-menu-block">
+                        <h4><i class="icon-gift"></i>Support</h4>
+                        <ul role="menu">
+                                <li><a href="#">Share knowledge</a></li>
+                                <li><a href="#">Make a donation</a></li>
+                            </ul>
+                </div>
+
+            </div>
+        </div> <!-- End footer-->
+
+        <div id="footer-bottom">
+            <div id="bottom-logo">
+                Ashe Language Services Logo <BR>(MAKE HORIZONTAL ONE)
+            </div>
+        </div>
+
+<!-- 
+            <div class="col col-md-3" id="footer">
+                Footer col 1
+            </div>
+            <div class="col col-md-8">
+                Footer col 2
+            </div>
+            <div class="col col-md-1">
+                Footer col 3
+            </div>
+-->
+
+<!-- FOOTER ENDS HERE-->
+
+    </div><!-- END outer-content-wrapper-->
+</div> <!-- This is END PAGE-CONTAINER-->
+</div><!-- END outer-container.-->
+
+    <!-- Keep this at the end:  Typically stylesheets in the head and scripts before the closing </body> tag. Including scripts at the bottom ensures that the actual page content is loaded first; when the scripts are finally downloaded the content (DOM) will be ready for your scripts to manipulate.->
+   Call the scripts that Bootstrap needs to run: jQuery first, then Popper.js, then Bootstrap JS 
+   -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   <!-- And then LAST load your own scripts. Scripts: You have access to any objects added to the global scope such as window (jQuery adds $, for example)-->
+
+   <!-- START: This script correctly receives search input, opens new window, and performs site-specific google search on it. -->
+    <script type="text/javascript">
+        function searchNewPage(event) {
+            var search_term = document.getElementById("search_term"); // NOTE: JS is case sensitive. WORKS.
+                console.log("The var search_term is " + search_term.value); //WORKS.
+            var searchString = "site:leahashe.com " + search_term.value;
+            var encodedSearchAddress = "https://google.com/search?q="+encodeURIComponent(searchString);
+        
+                console.log("The var searchString is " + searchString);
+                console.log("The encodedSearchString is "+encodeURIComponent(searchString));
+                console.log("The encoded search address is " + encodedSearchAddress);  
+        
+            window.open(encodedSearchAddress, "_blank");
+            // window.open("https://google.com/search?q=" + encodeURIComponent(searchString), "_blank");
+        }
+    </script>
+    <!-- END: This script correctly receives search input, opens new window, and performs site-specific google search on it. -->
+
+
+  
+  </body>
+
+</html>
